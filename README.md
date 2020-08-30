@@ -19,8 +19,8 @@ Changing the environment variables allow for easy installation of multiple insta
 
 | Variable | Purpose | Default Value |
 |----------|---------|---------------|
-|PREFIX|All containers made will use this string as a prefix in their container name.|`lemp`|
-|MYSQL_ROOT_PASSWORD|The MySQL root password used when creating the container.|`supertrickypassword`|
+|PREFIX|All containers made will use this string as a prefix for their container names.|`lemp`|
+|MYSQL_ROOT_PASSWORD|The MySQL root password.|`supertrickypassword`|
 |PORT|External HTTP port to bind to Nginx.|`80`|
 |SECURE_PORT|External HTTPS port to bind to Nginx.|`443`|
 |PMA_PORT|External HTTP port to bind to PHPMyAdmin.|`8080`|
