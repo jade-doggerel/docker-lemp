@@ -51,7 +51,7 @@ Now, witness the firepower of your fully armed and operational battle station!
 | Directory | Purpose |
 |-----------|---------|
 |`src/`|Put your website in here.|
-|`sqldata/`|Volume used by MySQL. Don't delete this when bringing down the compose, or you'll use your database.|
+|`sqldata/`|Volume used by MySQL. Don't delete this or you'll lose your database.|
 |`.docker/`|Dockerfiles and configs.|
 
 
