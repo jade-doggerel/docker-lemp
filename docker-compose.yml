@@ -1,0 +1,53 @@
+version: '3.7'
+
+# Services
+services:
+
+  # Nginx Service
+  nginx:
+    container_name: ${PREFIX:?err}-nginx
+    image: nginx:1.19
+    ports:
+      - ${PORT:?err}:80
+    volumes:
+      - ./src:/var/www/php:ro
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - php
+
+  # PHP Service
+  php:
+    container_name: ${PREFIX:?err}-php
+    build: ./.docker/php
+    working_dir: /var/www/php
+    volumes:
+      - ./src:/var/www/php
+    depends_on:
+      - mysql
+
+  # MySQL Service
+  mysql:
+    container_name: ${PREFIX:?err}-mysql
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
+      MYSQL_DATABASE: demo
+    volumes:
+      - ./.docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      - ${PREFIX:?err}-mysqldata:/var/lib/mysql
+
+  # PhpMyAdmin Service
+  phpmyadmin:
+    container_name: ${PREFIX:?err}-pma
+    image: phpmyadmin/phpmyadmin:5
+    ports:
+      - {PORT:?err}:80
+    environment:
+      PMA_HOST: mysql
+    depends_on:
+      - mysql
+
+# Volumes
+volumes:
+
+  ${PREFIX:?err}-mysqldata:
