@@ -50,9 +50,9 @@ Now, witness the firepower of your fully armed and operational battle station!
 ## Directories
 | Directory | Purpose |
 |-----------|---------|
-|src/|Put your website in here.|
-|sqldata/|Volume used by MySQL. Don't delete this when bringing down the compose, or you'll use your database.|
-|.docker/|Dockerfiles and configs.|
+|`src/`|Put your website in here.|
+|`sqldata/`|Volume used by MySQL. Don't delete this when bringing down the compose, or you'll use your database.|
+|`.docker/`|Dockerfiles and configs.|
 
 
 ## Issues with MySQLi
