@@ -34,7 +34,7 @@ services:
       MYSQL_DATABASE: demo
     volumes:
       - ./.docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf:ro
-      - ${PREFIX:?err}-mysqldata:/var/lib/mysql
+      - ./sqldata:/var/lib/mysql
 
   # PhpMyAdmin Service
   phpmyadmin:
@@ -46,8 +46,3 @@ services:
       PMA_HOST: mysql
     depends_on:
       - mysql
-
-# Volumes
-volumes:
-
-  ${PREFIX:?err}-mysqldata:
